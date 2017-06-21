@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "title": "Hoe oud ben je?",
+        "answers": [
+            {
+                "id": 1,
+                "title": "Jonger dan 18",
+                "ref": 2
+            },
+            {
+                "id": 2,
+                "title": "Ouder dan 18",
+                "ref": 3
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "title": "Je bent jonger dan 18"
+    },
+    {
+        "id": 3,
+        "title": "Je bent ouder dan 18"
+    }
+]
