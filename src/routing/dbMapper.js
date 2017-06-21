@@ -19,6 +19,23 @@ class dbMapper {
         })
     }
 
+    getOne(req, res) {
+        models.questionModel.findOne({'id': req.params.id}, (err, foundQuestion) => {
+            return res.json(foundQuestion); 
+        })
+    }
+
+    edit(req, res) {
+        models.questionModel.findOne({'id': req.params.id}, (err, foundQuestion) => {
+            foundQuestion = Object.assign(foundQuestion, req.body);
+
+            foundQuestion.save(function (err, updatedQuestion) {
+                if (err) return handleError(err);
+                res.send(updatedQuestion);
+            });
+        })
+    }
+
     getAll(req, res) {
         models.questionModel.find((err, result) => {
             return res.json(result)

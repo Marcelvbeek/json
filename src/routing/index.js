@@ -8,7 +8,11 @@ export default ({ config }) => {
     
 	api.post('/getref', dbmapper.getRef)
 
-    api.post('/all', dbmapper.getAll)
+    api.post('/questions', dbmapper.getAll)
+	
+	api.get('/questions/:id', dbmapper.getOne)
+
+	api.put('/questions/:id', dbmapper.edit)
 
     api.post('/new', dbmapper.addNew)
 
