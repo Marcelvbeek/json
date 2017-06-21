@@ -1,7 +1,7 @@
 import models from '../database/index'
 const database = require("../database")
 
-class dbMapper {
+class questionController {
     constructor() {
 
     }
@@ -57,4 +57,4 @@ class dbMapper {
     
 }
 
-export default dbMapper
+export default questionController

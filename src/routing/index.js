@@ -1,20 +1,20 @@
 import {Router} from 'express'
-import dbMapper from './dbMapper'
+import QuestionController from '../controllers/questionController'
 
-const dbmapper = new dbMapper();
+const questionController = new QuestionController();
 
 export default ({ config }) => {
 	let api = Router();
     
-	api.post('/getref', dbmapper.getRef)
+	api.post('/getref', questionController.getRef)
 
-    api.post('/questions', dbmapper.getAll)
+    api.post('/questions', questionController.getAll)
 	
-	api.get('/questions/:id', dbmapper.getOne)
+	api.get('/questions/:id', questionController.getOne)
 
-	api.put('/questions/:id', dbmapper.edit)
+	api.put('/questions/:id', questionController.edit)
 
-    api.post('/new', dbmapper.addNew)
+    api.post('/new', questionController.addNew)
 
 	return api;
 }
