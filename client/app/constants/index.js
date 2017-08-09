@@ -1,4 +1,5 @@
-export const AUTH = {
-    LOGIN: 'LOGIN',
-    LOGOUT: 'LOGOUT'
-};
+export const LOGIN = 'LOGIN'
+export const SETTOKEN = 'SETTOKEN'
+export const SETUSER = 'SETUSER'
+export const SETPASSWORD = 'SETPASSWORD'
+export const SHOWERROR = 'SHOWERROR'

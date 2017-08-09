@@ -15,27 +15,29 @@ module.exports = {
     path: path.resolve('dist'),
     filename: 'index_bundle.js'
   },
-  resolve: {
-    extensions: ['.js', '.jsx']
+  devServer: {
+    historyApiFallback: true
   },
   module: {
     loaders: [
+      {
+        test: /\.(js|jsx)$/,  // Match both .js and .jsx files
+        exclude: /node_modules/, 
+        loaders: ['babel?presets[]=es2015&presets[]=react'], 
+      }
+    ],
+    rules: [
       {
         test: /\.js$/,
         exclude: /(node_modules|bower_components)/,
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['env']
+            presets: ['react']
           }
         }
       },
       {
-        test: /\.html$/,
-        loader: "babel?presets[]=es2015!es6-template-string"
-      },
-    ],
-    rules: [{
         test: /\.scss$/,
         use: [{
             loader: "style-loader" // creates style nodes from JS strings
@@ -44,7 +46,8 @@ module.exports = {
         }, {
             loader: "sass-loader" // compiles Sass to CSS
         }]
-    }]
+      }
+    ]
   },
   plugins: [HtmlWebpackPluginConfig]
 }
