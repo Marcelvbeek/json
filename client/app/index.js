@@ -13,9 +13,11 @@ import { Router, Route, IndexRoute, browserHistory } from 'react-router'
 import { syncHistoryWithStore, routerReducer } from 'react-router-redux'
 
 import authentication from './reducers/auth';
+import questionTree from './reducers/questiontree';
 
 const reducer = combineReducers({
   authentication,
+  questionTree,
   routing: routerReducer,
 })
 

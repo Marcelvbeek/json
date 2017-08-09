@@ -5,7 +5,7 @@ import '../../scss/style.scss';
 class App extends Component {
   render() {
     return (
-      <div className="container">
+      <div className="container-fluid">
         <Link to="/">Login</Link>
         <Link to="/jsonviewer">Json-viewer</Link>
         <Link to="/add-account">Add account</Link>

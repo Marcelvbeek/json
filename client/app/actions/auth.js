@@ -1,6 +1,7 @@
 import { LOGIN, SETTOKEN, SETUSER, SETPASSWORD, SHOWERROR } from '../constants'
 import { browserHistory } from 'react-router';
 import httpService from '../abstractions/httpservice';
+var httpProvider = new httpService();
 
 export const SetUser = username => {
   return {
@@ -40,21 +41,10 @@ export const ShowError = errorMessage => {
 
 export function AuthenticateToServer(data) {
   return function(dispatch) {
-    var myHeaders = new Headers();
-    myHeaders.append("Content-Type", "application/json");
-
-    var postData = {
-      method: 'POST',
-      headers: myHeaders,
-      body: JSON.stringify({
-        username: data.username,
-        password: data.password
-      })
-    }
-    return fetch('http://localhost:3000/api/public/account/login', postData).then(response => 
-      response.json(),
-      error => console.log('an error occured')
-    )
+    return httpProvider.post('http://localhost:3000/api/public/account/login', {
+      username: data.username,
+      password: data.password
+    })
     .then(json => 
       {
         if(json.token) {
@@ -79,7 +69,6 @@ export function AuthenticateToServer(data) {
 
 export function AddAccountToServer(data) {
   return function(dispatch) {
-    var httpProvider = new httpService();
     return httpProvider.post('http://localhost:3000/api/public/account/add', {
       name: data.username,
       username: data.username,

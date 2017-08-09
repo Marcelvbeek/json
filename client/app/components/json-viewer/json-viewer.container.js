@@ -1,14 +1,21 @@
 import { connect } from 'react-redux';
+import { SetActiveQuestion } from '../../actions/questiontree';
 import JsonViewer from './json-viewer.component';
 
 const mapStateToProps = (state) => {
     return {
-        title: state.authentication.token
+        questions: state.questionTree.questionList,
+        activeQuestion: state.questionTree.activeQuestion
     }
 }
 
 const mapDispatchToProps = dispatch => {
   return {
+    setActiveQuestion: id => {
+      dispatch(
+        SetActiveQuestion(id)
+      )
+    }
   }
 }
 

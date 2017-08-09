@@ -21,7 +21,11 @@ export default class httpService {
     }
 
     post(url, data) {
-        console.log(url);
-        return fetch(url, this.getPostData(data));
+        return new Promise(function(resolve, reject) {
+            resolve({
+                token: 'Works!'
+            })
+        })
+        //return fetch(url, this.getPostData(data));
     }
 }
